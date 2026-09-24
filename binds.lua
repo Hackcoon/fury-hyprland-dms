@@ -58,13 +58,7 @@ local function sh(cmd) return run("bash -c '" .. cmd .. "'") end
 -- ═════════════════ SHELL SWITCHING + BAR TOGGLE — RETIRED for DMS (section 12) ═════════════════
 -- Single shell: DMS. Switcher + generic bar toggle retired below (see RETIRED).
 
--- ═════════════════ TIDE ISLAND BINDS — RETIRED for DMS (section 13) ═════════════════
--- All Tide IPC binds retired below (see RETIRED). Helper kept so restore is one uncomment.
-local tideipc = function(fn)                                            -- tide IPC helper guard (kept, unused while retired)
-  return run("bash -c 'pgrep -f \"quickshell .*tide-island\" >/dev/null && quickshell ipc -p " ..
-    "\"$(readlink -f /run/current-system/sw/share/tide-island)\" call " .. fn .. " || true'")
-end
--- (all Tide binds retired below — see RETIRED; helper above kept for restore)
+-- ═════════════════ TIDE ISLAND — REMOVED 2026-09-24 (unused; git history restores) ═════════════════
 
 -- ═════════════════ RETIRED (commented out per vault 1-9 decisions, 2026-09-23) ═════════════════
 -- Kept here so nothing is lost. Uncomment to restore. Sections 10-13 untouched.
@@ -128,8 +122,6 @@ end
 -- hl.bind(M .. " + Tab", hl.dsp.group.next())
 -- -- SUPER+SHIFT+Tab group prev — retired, workspace m-1 keeps chord
 -- hl.bind(MS .. " + Tab", hl.dsp.group.prev())
--- -- SUPER+SHIFT+A tide overview — retired, AnimationsMenu keeps chord
--- hl.bind(MS .. " + A", tideipc("overview toggle"))
 -- -- SUPER+Print full screenshot script — no DMS equiv, retired
 -- hl.bind(M .. " + Print", run(script("ScreenShot.sh --now")))
 -- -- SUPER+SHIFT+Print area script — replaced by DMS region save on SHIFT+Print
@@ -155,24 +147,6 @@ end
 -- hl.bind(MCA .. " + T", run(script("SwitchShell.sh")))
 -- -- SUPER+CTRL+ALT+B generic bar toggle — retired, DMS bar stays on (vault §12)
 -- hl.bind(MCA .. " + B", run(script("ToggleBar.sh")))
--- -- SUPER+ALT+M tide player — retired with Tide block (vault §13)
--- hl.bind(MA .. " + M", tideipc("tide togglePlayer"))
--- -- SUPER+ALT+P tide power — retired with Tide block (vault §13)
--- hl.bind(MA .. " + P", tideipc("tide togglePowerMenu"))
--- -- SUPER+ALT+N tide notifs — retired with Tide block (vault §13)
--- hl.bind(MA .. " + N", tideipc("tide toggleNotificationCenter"))
--- -- SUPER+ALT+F tide wallpaper — retired with Tide block (vault §13)
--- hl.bind(MA .. " + F", tideipc("tide toggleWallpaperPicker"))
--- -- SUPER+ALT+I tide shelf — retired with Tide block (vault §13)
--- hl.bind(MA .. " + I", tideipc("tide toggleFileShelf"))
--- -- SUPER+ALT+G tide control — retired with Tide block (vault §13)
--- hl.bind(MA .. " + G", tideipc("tide toggleControlCenter"))
--- -- SUPER+CTRL+ALT+L tide clock — retired with Tide block (vault §13)
--- hl.bind(MCA .. " + L", tideipc("tide showClock"))
--- -- SUPER+CTRL+ALT+M tide timer — retired with Tide block (vault §13)
--- hl.bind(MCA .. " + M", tideipc("tide showTimer"))
--- -- SUPER+CTRL+ALT+F tide launcher — retired with Tide block (vault §13)
--- hl.bind(MCA .. " + F", tideipc("tide toggleApplicationLauncher"))
 -- -- SUPER+SHIFT+Return Dropterminal.sh — retired, native toggle_special scratch-term replaces it (script used broken hyprctl dispatch args; workspace rule auto-spawns kitty)
 -- hl.bind(MS .. " + Return", run(script("Dropterminal.sh kitty")))
 -- -- SUPER+ALT+SPACE float ALL — retired, dispatcher broken in this build, no Lua equiv (use CTRL+SPACE per window)
