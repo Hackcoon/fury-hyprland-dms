@@ -1,6 +1,6 @@
 # hyprland-keys-final — Fury Hyprland audit
 
-> Date: 2026-09-24 (v4 — regenerated live).
+> Date: 2026-09-25 (v5 — vicinae on SUPER+ALT+SPACE, 153 binds).
 > Source of truth: `~/.config/hypr/dms/binds.lua` (DMS cheatsheet slot, `require`d by `hyprland.lua`) + `binds.lua` (retired archive) + `hyprland.lua` (env/autostart/rules).
 > Mango config untouched throughout. Apply = save file (Hyprland hot-reloads; full `hyprctl reload` if stacked).
 
@@ -15,6 +15,7 @@
 | `SUPER + SHIFT + Return` | `hl.dsp.workspace.toggle_special("scratch-term")` | dropdown scratchpad native (kitty auto-spawns via workspace rule) |
 | `SUPER + E` | `hl.dsp.exec_cmd("thunar")` | file manager Thunar |
 | `SUPER + SPACE` | `hl.dsp.exec_cmd("dms ipc call spotlight toggle")` | DMS launcher / spotlight |
+| `SUPER + ALT + SPACE` | `hl.dsp.exec_cmd("vicinae toggle")` | Vicinae secondary launcher (DMS stays on SUPER+SPACE) |
 | `SUPER + F` | `hl.dsp.exec_cmd("firefox")` | browser Firefox (Mango chord) |
 | `SUPER + Z` | `hl.dsp.exec_cmd("zen-beta")` | Zen Browser (Mango chord) |
 | `SUPER + SHIFT + Z` | `hl.dsp.exec_cmd("zen-beta --private-window")` | private Zen window (Mango chord) |
@@ -188,7 +189,7 @@
 | `SUPER + ALT + SHIFT + period` | `hl.dsp.workspace.move({ monitor = "right" })` | send workspace to next monitor (Mango tagmon) |
 
 ## Retired (45 in binds.lua RETIRED block, restorable)
-Retired highlights: vicinae/rofi launchers, KeyHints/Keybinds.sh, fury-bar IPCs, Tide stack, Waybar pair (parked 2026-09-24), wallpaper scripts, RofiBeats, zsh-theme, ws10 trio, group-Tab pair, float-ALL (no API), Dropterminal (native scratch-term wins), ScreenShot.sh family, global kbd switch, monitor F9-12, comma-workspace, ALT+C rofi calc, Print-delay shots.
+Retired highlights: rofi launcher (vicinae restored 2026-09-25 on SUPER+ALT+SPACE), KeyHints/Keybinds.sh, fury-bar IPCs, Tide stack, Waybar pair (parked 2026-09-24), wallpaper scripts, RofiBeats, zsh-theme, ws10 trio, group-Tab pair, float-ALL (no API), Dropterminal (native scratch-term wins), ScreenShot.sh family, global kbd switch, monitor F9-12, comma-workspace, ALT+C rofi calc, Print-delay shots.
 
 ## Maintenance (repo workflow — follow every time)
 

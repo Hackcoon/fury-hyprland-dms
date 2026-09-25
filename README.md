@@ -57,6 +57,6 @@ loading (check the `require` line).
 
 ## Keybind highlights (full list: `hyprland-keys-final.md`)
 
-`SPACE` spotlight · `V` clipboard · `N` notifs · `W` wallpaper · `O` control center ·
+`SPACE` spotlight · `ALT+SPACE` vicinae · `V` clipboard · `N` notifs · `W` wallpaper · `O` control center ·
 `S` region→satty · `U` special · `J` scratch · `L` layout cycle (dwindle/master/scrolling) ·
 `Tab`/wheel hop used workspaces · `1..9` tags · `H` this sheet · `R` restart DMS.
