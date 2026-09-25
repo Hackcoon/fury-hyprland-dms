@@ -45,6 +45,7 @@ hl.bind("SUPER + CTRL + SHIFT + R", hl.dsp.exec_cmd("bash -c 'pkill rofi || true
 hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen()) -- fullscreen toggle
 hl.bind("SUPER + CTRL + F", hl.dsp.window.fullscreen({ mode = "maximized" })) -- maximize keep bar/border
 hl.bind("SUPER + CTRL + SPACE", hl.dsp.window.float()) -- float current window (Mango chord)
+-- VICINAE secondary launcher — to disable: comment the next line, `hyprctl reload`
 hl.bind("SUPER + ALT + SPACE", hl.dsp.exec_cmd("vicinae toggle")) -- Vicinae secondary launcher (DMS stays on SUPER+SPACE; float-ALL retired)
 -- (SUPER+ALT+SPACE float-ALL retired — hyprctl dispatch workspaceopt is broken
 -- in this build and Lua API has no float-all; use CTRL+SPACE per window; see RETIRED)

@@ -225,6 +225,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("/run/wrappers/bin/gnome-keyring-daemon --start --components=secrets")
 
   -- VICINAE — server mode (survives independently, spawns on toggle)
+  -- to disable: comment the next line + remove the SUPER+ALT+SPACE bind in dms/binds.lua, `hyprctl reload`, `pkill vicinae-server`
   hl.exec_cmd("~/.local/bin/vicinae-autostart")  -- guarded (also used by KDE session)
 
   -- notifications: DMS (your MAIN shell) registers org.freedesktop.Notifications
@@ -243,8 +244,8 @@ hl.on("hyprland.start", function()
   -- NOTE: pkill -f patterns below are bracket-quoted (fury-ba[r]) so the
   -- reaper never matches its own spawn chain (pkill spares only itself,
   -- not parents whose cmdlines contain the victim string).
-  hl.exec_cmd("bash -c 'pkill -f \"quickshell -p.*fury-ba[r]\" 2>/dev/null; pgrep -f \"quickshell .*-tide-islan[d]\" >/dev/null && pkill -f \"quickshell .*-tide-islan[d]\" && pkill -f \"lyricsmpri[s]\"; pkill -f \"dms ru[n]\" 2>/dev/null; true'")
-  hl.exec_cmd("/run/current-system/sw/bin/dms run")
+  hl.exec_cmd("bash -c 'pkill -f \"quickshell -p.*fury-ba[r]\" 2>/dev/null; pgrep -f \"quickshell .*-tide-islan[d]\" >/dev/null && pkill -f \"quickshell .*-tide-islan[d]\" && pkill -f \"lyricsmpri[s]\"; true'")
+  hl.exec_cmd("bash -c 'D=$(command -v dms 2>/dev/null || echo /run/current-system/sw/bin/dms); pkill -f \"dms ru[n]\" 2>/dev/null; sleep 1; setsid $D run >>/tmp/dms-hyprland.log 2>&1 < /dev/null'")
 
   -- session glue (NixOS + systemd)
   hl.exec_cmd("dbus-update-activation-environment --systemd --all WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
