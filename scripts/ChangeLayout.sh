@@ -21,8 +21,8 @@ if [ "$1" = "init" ]; then
   fi
 fi
 
-# Cycles ALL built-in layouts: dwindle -> master -> scrolling -> dwindle.
-# (hy3 joins the ring once its rebuild lands; unknown layouts fall to dwindle.)
+# Cycles ALL available layouts: dwindle -> master -> scrolling -> hy3 -> dwindle.
+# (hy3 = plugin, needs hl.plugin.load in hyprland.lua; unknown layouts fall to dwindle.)
 case $LAYOUT in
 "dwindle")
   hyprctl eval 'hl.config({ general = { layout = "master" } })'
@@ -33,6 +33,10 @@ case $LAYOUT in
   notify-send -e -u low -i "$notif" " Scrolling Layout"
   ;;
 "scrolling")
+  hyprctl eval 'hl.config({ general = { layout = "hy3" } })'
+  notify-send -e -u low -i "$notif" " Hy3 Layout"
+  ;;
+"hy3")
   hyprctl eval 'hl.config({ general = { layout = "dwindle" } })'
   notify-send -e -u low -i "$notif" " Dwindle Layout"
   ;;

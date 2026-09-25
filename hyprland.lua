@@ -12,6 +12,11 @@ hl.env("QT_QPA_PLATFORMTHEME", "kde")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 
+-- ================= PLUGINS =================
+-- hy3 (i3-style tabs/splits) from system packages. nixpkgs-pinned to match
+-- this Hyprland build; re-verify after any Hyprland version bump.
+hl.plugin.load("/run/current-system/sw/lib/libhy3.so")
+
 -- ================= MONITORS =================
 -- DP-2 (AOC 24G1WG4): force 144Hz so VRR (misc.vrr=2) flicker stays minimal
 hl.monitor({ output = "DP-2", mode = "1920x1080@144", position = "auto", scale = 1 })
