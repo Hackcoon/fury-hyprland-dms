@@ -1,4 +1,4 @@
-# Free keybinds — Hyprland (fury) — generated 2026-09-25 from `dms/binds.lua` (152 binds)
+# Free keybinds — Hyprland (fury) — generated 2026-09-25 from `dms/binds.lua` (153 binds)
 
 > Regenerate: `rg -o 'hl\.bind\("([^"]+)"' dms/binds.lua | sort | uniq -c`.
 > Source of truth: `dms/binds.lua` (active, DMS cheatsheet reads it) + `binds.lua` (retired archive).
@@ -16,7 +16,7 @@ Taken: `A B C F G H I J N O P Q R S U V Y Z, Return, Tab, 1-9, period, bracketle
 
 FREE: `D, E, K, L, M, T, W, X, 0, comma (,), semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), backslash (\), grave (`), SPACE`
 
-> Vicinae candidates (verified free 2026-09-25): `SUPER + SHIFT + SPACE`, `SUPER + SHIFT + D` (old rofi slot, matches mango). `SUPER + ALT + SPACE` is FREE in Hypr (float-ALL retired) but TAKEN in mango (`toggle_all_floating`) — avoid for parity.
+> Vicinae now on `SUPER + ALT + SPACE` (153rd bind, 2026-09-25). DMS stays on `SUPER+SPACE`. Mango parity note: same chord is TAKEN in mango (`toggle_all_floating`) — Hypr-only for now.
 
 ## SUPER+CTRL
 
@@ -26,9 +26,9 @@ FREE: `A, C, E, G, I, M, N, P, Q, S, T, U, V, W, X, Y, Z, 0, comma (,), period (
 
 ## SUPER+ALT (wide open)
 
-Taken: `A C L O S, comma, period, down/left/right/up, mouse_down/up (zoom)`
+Taken: `A C L O S, SPACE (vicinae), comma, period, down/left/right/up, mouse_down/up (zoom)`
 
-FREE: `B D E F G H I J K M N P Q R T U V W X Y Z, SPACE, Return, Tab, 0-9, semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), brackets, backslash (\), grave (`)`
+FREE: `B D E F G H I J K M N P Q R T U V W X Y Z, Return, Tab, 0-9, semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), brackets, backslash (\), grave (`)`
 
 > Note: `SUPER+ALT+B` / `SUPER+CTRL+B` Waybar binds are commented out (Waybar breaks DMS binds). Treat as reserved, not free.
 
