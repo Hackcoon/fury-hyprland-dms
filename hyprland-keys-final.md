@@ -1,6 +1,6 @@
 # hyprland-keys-final — Fury Hyprland audit
 
-> Date: 2026-09-24 (v3 — regenerated live; supersedes `~/hyprland-keys-final.md` v2).
+> Date: 2026-09-24 (v4 — regenerated live).
 > Source of truth: `~/.config/hypr/dms/binds.lua` (DMS cheatsheet slot, `require`d by `hyprland.lua`) + `binds.lua` (retired archive) + `hyprland.lua` (env/autostart/rules).
 > Mango config untouched throughout. Apply = save file (Hyprland hot-reloads; full `hyprctl reload` if stacked).
 
@@ -51,8 +51,6 @@
 | Chord | Action | Note |
 |---|---|---|
 | `SUPER + N` | `hl.dsp.exec_cmd("dms ipc call notifications toggle")` | DMS notifications panel (Mango chord) |
-| `SUPER + CTRL + B` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/WaybarStyles.sh")` | waybar styles menu |
-| `SUPER + ALT + B` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/WaybarLayouts.sh")` | waybar layout menu |
 
 ## Userscripts
 | Chord | Action | Note |
@@ -72,7 +70,7 @@
 | `CTRL + ALT + Delete` | `hl.dsp.exit()` | exit Hyprland |
 | `SUPER + Q` | `hl.dsp.window.close()` | close window |
 | `SUPER + SHIFT + Q` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/KillActiveProcess.sh")` | force kill SIGKILL script |
-| `SUPER + ALT + L` | `hl.dsp.exec_cmd("/run/current-system/sw/bin/hyprlock")` | hyprlock (DMS lock renders nothing on Hyprland; see notes) |
+| `SUPER + ALT + L` | `hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || exec /run/current-system/sw/bin/hyp…` | hyprlock, singleton-guarded (no stacking) |
 | `CTRL + ALT + P` | `hl.dsp.exec_cmd("dms ipc call powermenu toggle")` | DMS power menu |
 | `SUPER + X` | `hl.dsp.exec_cmd("dms ipc call powermenu toggle")` | DMS power menu quick (Mango chord) |
 | `SUPER + SHIFT + N` | `hl.dsp.exec_cmd("dms ipc call notifications toggleDoNotDisturb")` | DMS do-not-disturb toggle (Mango chord) |
@@ -116,7 +114,7 @@
 | `XF86AudioPrev` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/MediaCtrl.sh --prv"), { locked = true }` | prev track |
 | `XF86AudioStop` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/MediaCtrl.sh --stop"), { locked = true }` | stop track |
 | `SUPER + S` | `hl.dsp.exec_cmd("bash -c 'dms screenshot --stdout --no-file --no-clipboard --no-notify | s…` | region select to satty (Mango chord) |
-| `SUPER + ALT + S` | `hl.dsp.exec_cmd("bash -c '/run/current-system/sw/bin/hyprlock & sleep 2; systemctl suspend…` | lock-then-suspend via hyprlock (deterministic) |
+| `SUPER + ALT + S` | `hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || /run/current-system/sw/bin/hyprlock…` | lock-then-suspend via hyprlock (singleton-guarded) |
 | `SUPER + SHIFT + S` | `hl.dsp.exec_cmd("bash -c 'dms screenshot window --stdout --no-file --no-clipboard --no-not…` | focused window to satty (Mango chord) |
 | `SUPER + CTRL + SHIFT + S` | `hl.dsp.exec_cmd("bash -c 'dms screenshot full --stdout --no-file --no-clipboard --no-notif…` | fullscreen to satty (Mango 3rd bind) |
 | `SHIFT + Print` | `hl.dsp.exec_cmd("dms screenshot")` | quick region save (Mango chord) |
@@ -189,5 +187,39 @@
 | `SUPER + ALT + SHIFT + comma` | `hl.dsp.workspace.move({ monitor = "left" })` | send workspace to prev monitor (Mango tagmon) |
 | `SUPER + ALT + SHIFT + period` | `hl.dsp.workspace.move({ monitor = "right" })` | send workspace to next monitor (Mango tagmon) |
 
-## Retired (55 in binds.lua RETIRED block, restorable)
-Retired highlights: vicinae/rofi launchers, KeyHints/Keybinds.sh, fury-bar IPCs, Tide 10×, Waybar (later restored? no — restored to dms slot), wallpaper scripts, RofiBeats, zsh-theme, ws10 trio, group-Tab pair, float-ALL (no API), Dropterminal (native scratch-term wins), ScreenShot.sh family, global kbd switch, monitor F9-12, comma-workspace, ALT+C rofi calc, Print-delay shots.
+## Retired (45 in binds.lua RETIRED block, restorable)
+Retired highlights: vicinae/rofi launchers, KeyHints/Keybinds.sh, fury-bar IPCs, Tide stack, Waybar pair (parked 2026-09-24), wallpaper scripts, RofiBeats, zsh-theme, ws10 trio, group-Tab pair, float-ALL (no API), Dropterminal (native scratch-term wins), ScreenShot.sh family, global kbd switch, monitor F9-12, comma-workspace, ALT+C rofi calc, Print-delay shots.
+
+## Maintenance (repo workflow — follow every time)
+
+1. **Live files first:** edit `~/.config/hypr/dms/binds.lua` (active binds),
+   `binds.lua` (retired archive only), or `hyprland.lua` (env/autostart/rules).
+   Mango config is a different repo — never touch it from here.
+2. **Validate:** `luac -p` every edited Lua file. Hyprland hot-reloads saves;
+   if binds stack (dupes in `hyprctl binds`), run one clean `hyprctl reload`.
+3. **Verify:** `hyprctl binds | grep -c '^bind$'` (expect ~133; jumps mean stacking),
+   `dms keybinds show hyprland` (SUPER+H content + count).
+4. **Regenerate this doc** from live files when binds change (never hand-edit
+   the tables), bump the date at top.
+5. **Commit + push** `fury-hyprland-dms` (short imperative message).
+
+### Hard rules (learned the painful way)
+
+- Active binds live ONLY in `dms/binds.lua` (self-contained: no helpers from
+  `binds.lua` — expand chords/paths). That file is also the DMS cheatsheet source.
+- Every active `hl.bind` carries a trailing `-- explanation` (cheatsheet desc).
+- Disabled binds go to the `binds.lua` RETIRED block as `-- hl.bind` comments
+  (restorable), never deleted outright. Tide-era lines are gone (git history).
+- `hyprctl dispatch <args>` and `hyprctl keyword` writes are DEAD on the Lua
+  build — use in-process `hl.dsp.*`, `hyprctl eval 'hl.config({...})'`, or
+  read-only queries. Same for scripts (ChangeLayout/Blur/Zoom use `eval`).
+- `pkill -f "pattern"` must NEVER match its own spawn chain (pkill spares only
+  itself, not parents): bracket-quote (`fury-ba[r]`) or resolve binaries at
+  runtime (`D=$(command -v dms)`). Killed-two-bars-and-a-shell learning here.
+- Single locker policy: DMS owns suspend (inhibitor), hyprlock owns idle/manual,
+  all spawns singleton-guarded (`pidof hyprlock || …`). One lock per path, always.
+- DMS shell runs as plain `dms run` (absolute path — Hyprland exec PATH is thin);
+  `dms.service` is Mango-gated and cannot run here. fury-bar/Tide stay retired.
+- 9 tags max (Mango parity — ws10 retired), digits not `code:` (sheet readability),
+  emoji workspace names via `default_name` + persistent rules.
+- Env (Qt/kde theme, keyring, OZONE) needs a re-login to take effect; binds do not.
