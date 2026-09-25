@@ -53,9 +53,9 @@ hl.bind("SUPER + ALT + mouse_up", hl.dsp.exec_cmd("/home/fury/.config/hypr/scrip
 -- ═══════════════════════ DMS NOTIFICATIONS ═══════════════════════
 hl.bind("SUPER + N", hl.dsp.exec_cmd("dms ipc call notifications toggle")) -- DMS notifications panel (Mango chord)
 
--- ═══════════════════════ WAYBAR (restored 2026-09-24, kept for optional use) ═══════════════════════
-hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/WaybarStyles.sh")) -- waybar styles menu
-hl.bind("SUPER + ALT + B", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/WaybarLayouts.sh")) -- waybar layout menu
+-- ═══════════════════════ WAYBAR (commented 2026-09-24: Waybar running breaks DMS binds; restore to use) ═══════════════════════
+-- hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/WaybarStyles.sh")) -- waybar styles menu
+-- hl.bind("SUPER + ALT + B", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/WaybarLayouts.sh")) -- waybar layout menu
 
 -- ═══════════════════════ USERSCRIPTS ═══════════════════════
 hl.bind("SUPER + W", hl.dsp.exec_cmd("dms ipc call dankdash wallpaper")) -- DMS wallpaper switcher (Mango chord)
@@ -71,7 +71,7 @@ hl.bind("SHIFT_L + ALT_L", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/Tak0
 hl.bind("CTRL + ALT + Delete", hl.dsp.exit()) -- exit Hyprland
 hl.bind("SUPER + Q", hl.dsp.window.close()) -- close window
 hl.bind("SUPER + SHIFT + Q", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/KillActiveProcess.sh")) -- force kill SIGKILL script
-hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("/run/current-system/sw/bin/hyprlock")) -- hyprlock (DMS lock renders nothing on Hyprland; see notes)
+hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || exec /run/current-system/sw/bin/hyprlock'")) -- hyprlock, singleton-guarded (no stacking)
 hl.bind("CTRL + ALT + P", hl.dsp.exec_cmd("dms ipc call powermenu toggle")) -- DMS power menu
 hl.bind("SUPER + X", hl.dsp.exec_cmd("dms ipc call powermenu toggle")) -- DMS power menu quick (Mango chord)
 hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("dms ipc call notifications toggleDoNotDisturb")) -- DMS do-not-disturb toggle (Mango chord)
@@ -114,7 +114,7 @@ hl.bind("XF86AudioStop", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/MediaC
 
 -- ═════════════════ SCREENSHOTS (DMS pipeline) ═════════════════
 hl.bind("SUPER + S", hl.dsp.exec_cmd("bash -c 'dms screenshot --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- region select to satty (Mango chord)
-hl.bind("SUPER + ALT + S", hl.dsp.exec_cmd("bash -c '/run/current-system/sw/bin/hyprlock & sleep 2; systemctl suspend'")) -- lock-then-suspend via hyprlock (deterministic)
+hl.bind("SUPER + ALT + S", hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || /run/current-system/sw/bin/hyprlock & sleep 2; systemctl suspend'")) -- lock-then-suspend via hyprlock (singleton-guarded)
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("bash -c 'dms screenshot window --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- focused window to satty (Mango chord)
 hl.bind("SUPER + CTRL + SHIFT + S", hl.dsp.exec_cmd("bash -c 'dms screenshot full --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- fullscreen to satty (Mango 3rd bind)
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd("dms screenshot")) -- quick region save (Mango chord)

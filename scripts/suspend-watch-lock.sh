@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # suspend-watch-lock.sh — lock on ANY suspend (DMS 1.6.2 misses PrepareForSleep).
-# Watches logind for PrepareForSleep(true) and locks via hyprlock
-# (DMS `lock` IPC renders nothing on Hyprland — verified 2026-09-23).
-# Started from hyprland.lua autostart.
+# Watches logind for PrepareForSleep(true) and fires the single-locker chain
+# (DMS lock, hyprlock fallback). Started from hyprland.lua autostart.
 set -u
-LOCK="/run/current-system/sw/bin/hyprlock"
+LOCK="pidof hyprlock >/dev/null || /run/current-system/sw/bin/dms ipc call lock lock || /run/current-system/sw/bin/hyprlock"
 gdbus monitor --system --dest org.freedesktop.login1 \
   --object-path /org/freedesktop/login1 2>/dev/null |
 while IFS= read -r line; do
