@@ -10,38 +10,35 @@ notif="$HOME/.config/swaync/images/ja.png"
 exec 9>/tmp/changelayout.lock
 flock 9
 
-LAYOUT=$(hyprctl -j getoption general:layout | jq '.str' | sed 's/"//g')
+# Per-workspace cycle: dwindle -> master -> scrolling -> hy3 -> dwindle.
+# Pins the ACTIVE workspace via workspace_rule, so a pinned WS1 can still
+# be changed later with SUPER+L. (hy3 = plugin, needs hl.plugin.load;
+# unknown layouts fall to dwindle.)
+WS=$(hyprctl -j activeworkspace | jq -r '.id')
+CUR=$(hyprctl -j workspaces | jq -r --argjson id "$WS" '.[] | select(.id==$id) | .tiledLayout // "dwindle"')
 
-# Reverse layout value to reuse toggle logic. So layouts don't get swapped initially.
-if [ "$1" = "init" ]; then
-  if [ "$LAYOUT" = "master" ]; then
-    LAYOUT="dwindle"
-  else
-    LAYOUT="master"
-  fi
-fi
-
-# Cycles ALL available layouts: dwindle -> master -> scrolling -> hy3 -> dwindle.
-# (hy3 = plugin, needs hl.plugin.load in hyprland.lua; unknown layouts fall to dwindle.)
-case $LAYOUT in
+case $CUR in
 "dwindle")
-  hyprctl eval 'hl.config({ general = { layout = "master" } })'
-  notify-send -e -u low -i "$notif" " Master Layout"
+  NEXT="master"
+  LABEL=" Master Layout"
   ;;
 "master")
-  hyprctl eval 'hl.config({ general = { layout = "scrolling" } })'
-  notify-send -e -u low -i "$notif" " Scrolling Layout"
+  NEXT="scrolling"
+  LABEL=" Scrolling Layout"
   ;;
 "scrolling")
-  hyprctl eval 'hl.config({ general = { layout = "hy3" } })'
-  notify-send -e -u low -i "$notif" " Hy3 Layout"
+  NEXT="hy3"
+  LABEL=" Hy3 Layout"
   ;;
 "hy3")
-  hyprctl eval 'hl.config({ general = { layout = "dwindle" } })'
-  notify-send -e -u low -i "$notif" " Dwindle Layout"
+  NEXT="dwindle"
+  LABEL=" Dwindle Layout"
   ;;
 *)
-  hyprctl eval 'hl.config({ general = { layout = "dwindle" } })'
-  notify-send -e -u low -i "$notif" " Dwindle Layout"
+  NEXT="dwindle"
+  LABEL=" Dwindle Layout"
   ;;
 esac
+
+hyprctl eval "hl.workspace_rule({ workspace = \"$WS\", layout = \"$NEXT\" })"
+notify-send -e -u low -i "$notif" "$LABEL"

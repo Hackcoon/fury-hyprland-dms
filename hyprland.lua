@@ -22,10 +22,12 @@ hl.plugin.load("/run/current-system/sw/lib/libhy3.so")
 hl.monitor({ output = "DP-2", mode = "1920x1080@144", position = "auto", scale = 1 })
 -- hyprland.lua Mango parity: 9 persistent tags (carousel-like, always exist)
 -- with emoji default names (vault set; DMS bar shows index:name = 1:globe)
-local wsNames = { "🌐", "💻", "💬", "🎵", "📁", "⚙️", "🎮", "📝", "📦" }
+local wsNames = { "🌐", "💻", "💬", "📁", "📝", "⚙️", "🎮", "🎵", "📦" }
 for i = 1, 9 do
   hl.workspace_rule({ workspace = tostring(i), persistent = true, default_name = wsNames[i] })
 end
+-- WS1 🌐 starts scrolling; SUPER+L re-pins the ACTIVE workspace so WS1 stays changeable
+hl.workspace_rule({ workspace = "1", layout = "scrolling" })
 -- native dropdown scratchpad (Mango toggle_named_scratchpad parity, no script):
 -- first toggle opens the special workspace empty -> rule spawns kitty there
 hl.workspace_rule({ workspace = "special:scratch-term", on_created_empty = "kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class scratch-term" })

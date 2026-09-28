@@ -176,35 +176,35 @@ hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ workspace = "special:scratchpa
 hl.bind("SUPER + CTRL + J", hl.dsp.workspace.toggle_special("scratchpad")) -- re-open scratch space (Mango restore chord)
 hl.bind("SUPER + 1", hl.dsp.focus({ workspace = "1" })) -- view tag 1
 hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = "1", follow = true })) -- send follow tag 1
-hl.bind("SUPER + CTRL + 1", hl.dsp.window.move({ workspace = "1" })) -- send silent tag 1
+hl.bind("SUPER + CTRL + 1", hl.dsp.window.move({ workspace = "1", follow = false })) -- send silent tag 1
 hl.bind("SUPER + 2", hl.dsp.focus({ workspace = "2" })) -- view tag 2
 hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = "2", follow = true })) -- send follow tag 2
-hl.bind("SUPER + CTRL + 2", hl.dsp.window.move({ workspace = "2" })) -- send silent tag 2
+hl.bind("SUPER + CTRL + 2", hl.dsp.window.move({ workspace = "2", follow = false })) -- send silent tag 2
 hl.bind("SUPER + 3", hl.dsp.focus({ workspace = "3" })) -- view tag 3
 hl.bind("SUPER + SHIFT + 3", hl.dsp.window.move({ workspace = "3", follow = true })) -- send follow tag 3
-hl.bind("SUPER + CTRL + 3", hl.dsp.window.move({ workspace = "3" })) -- send silent tag 3
+hl.bind("SUPER + CTRL + 3", hl.dsp.window.move({ workspace = "3", follow = false })) -- send silent tag 3
 hl.bind("SUPER + 4", hl.dsp.focus({ workspace = "4" })) -- view tag 4
 hl.bind("SUPER + SHIFT + 4", hl.dsp.window.move({ workspace = "4", follow = true })) -- send follow tag 4
-hl.bind("SUPER + CTRL + 4", hl.dsp.window.move({ workspace = "4" })) -- send silent tag 4
+hl.bind("SUPER + CTRL + 4", hl.dsp.window.move({ workspace = "4", follow = false })) -- send silent tag 4
 hl.bind("SUPER + 5", hl.dsp.focus({ workspace = "5" })) -- view tag 5
 hl.bind("SUPER + SHIFT + 5", hl.dsp.window.move({ workspace = "5", follow = true })) -- send follow tag 5
-hl.bind("SUPER + CTRL + 5", hl.dsp.window.move({ workspace = "5" })) -- send silent tag 5
+hl.bind("SUPER + CTRL + 5", hl.dsp.window.move({ workspace = "5", follow = false })) -- send silent tag 5
 hl.bind("SUPER + 6", hl.dsp.focus({ workspace = "6" })) -- view tag 6
 hl.bind("SUPER + SHIFT + 6", hl.dsp.window.move({ workspace = "6", follow = true })) -- send follow tag 6
-hl.bind("SUPER + CTRL + 6", hl.dsp.window.move({ workspace = "6" })) -- send silent tag 6
+hl.bind("SUPER + CTRL + 6", hl.dsp.window.move({ workspace = "6", follow = false })) -- send silent tag 6
 hl.bind("SUPER + 7", hl.dsp.focus({ workspace = "7" })) -- view tag 7
 hl.bind("SUPER + SHIFT + 7", hl.dsp.window.move({ workspace = "7", follow = true })) -- send follow tag 7
-hl.bind("SUPER + CTRL + 7", hl.dsp.window.move({ workspace = "7" })) -- send silent tag 7
+hl.bind("SUPER + CTRL + 7", hl.dsp.window.move({ workspace = "7", follow = false })) -- send silent tag 7
 hl.bind("SUPER + 8", hl.dsp.focus({ workspace = "8" })) -- view tag 8
 hl.bind("SUPER + SHIFT + 8", hl.dsp.window.move({ workspace = "8", follow = true })) -- send follow tag 8
-hl.bind("SUPER + CTRL + 8", hl.dsp.window.move({ workspace = "8" })) -- send silent tag 8
+hl.bind("SUPER + CTRL + 8", hl.dsp.window.move({ workspace = "8", follow = false })) -- send silent tag 8
 hl.bind("SUPER + 9", hl.dsp.focus({ workspace = "9" })) -- view tag 9
 hl.bind("SUPER + SHIFT + 9", hl.dsp.window.move({ workspace = "9", follow = true })) -- send follow tag 9
-hl.bind("SUPER + CTRL + 9", hl.dsp.window.move({ workspace = "9" })) -- send silent tag 9
+hl.bind("SUPER + CTRL + 9", hl.dsp.window.move({ workspace = "9", follow = false })) -- send silent tag 9
 hl.bind("SUPER + SHIFT + bracketleft", hl.dsp.window.move({ workspace = "previous" })) -- move window previous (closest to Mango tag-left)
 hl.bind("SUPER + SHIFT + bracketright", hl.dsp.window.move({ workspace = "m+1" })) -- move window next (closest to Mango tag-right)
-hl.bind("SUPER + CTRL + bracketleft", hl.dsp.window.move({ workspace = "previous" })) -- move window previous dup mod
-hl.bind("SUPER + CTRL + bracketright", hl.dsp.window.move({ workspace = "m+1" })) -- move window next dup mod
+hl.bind("SUPER + CTRL + bracketleft", hl.dsp.window.move({ workspace = "previous", follow = false })) -- move window previous dup mod
+hl.bind("SUPER + CTRL + bracketright", hl.dsp.window.move({ workspace = "m+1", follow = false })) -- move window next dup mod
 hl.bind("SUPER + mouse_down", function() hop_used(1) end) -- wheel down: next USED workspace
 hl.bind("SUPER + mouse_up", function() hop_used(-1) end) -- wheel up: prev USED workspace
 hl.bind("SUPER + period", hl.dsp.focus({ workspace = "e+1" })) -- cycle forward (Mango next)
