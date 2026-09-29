@@ -10,7 +10,7 @@
 
 -- ═══════════════════════════ STANDARD ═══════════════════════════
 hl.bind("SUPER + D", hl.dsp.exec_cmd("dolphin")) -- file manager Dolphin (Mango chord)
-hl.bind("SUPER + B", hl.dsp.exec_cmd('xdg-open "https://"')) -- default browser homepage (Brave)
+hl.bind("SUPER + B", hl.dsp.exec_cmd("brave-fast")) -- Brave Fast daily driver (native Wayland, no WebGPU)
 hl.bind("SUPER + C", hl.dsp.exec_cmd("codium")) -- editor VSCodium (Mango chord)
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf")) -- terminal kitty (wallust overlay, Hyprland-only)
 hl.bind("SUPER + SHIFT + Return", hl.dsp.workspace.toggle_special("scratch-term")) -- dropdown scratchpad native (kitty auto-spawns via workspace rule)
@@ -25,7 +25,7 @@ hl.bind("SUPER + K", hl.dsp.exec_cmd("qutebrowser")) -- keyboard-driven browser 
 hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class nvim -e nvim")) -- Neovim in Kitty (Mango chord)
 hl.bind("SUPER + Y", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class yazi -e yazi")) -- Yazi file manager (Mango chord)
 hl.bind("SUPER + SHIFT + Y", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class superfile -e superfile")) -- Superfile manager (Mango chord)
-hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("brave --incognito")) -- private Brave window (Mango chord)
+hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("brave-fast --incognito")) -- private Brave Fast window
 hl.bind("SUPER + SHIFT + H", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/mango/zsh-aliases.sh")) -- zsh aliases list (Mango chord+script, read-only use)
 
 -- ═══════════════════════ FEATURES / EXTRAS ═══════════════════════
