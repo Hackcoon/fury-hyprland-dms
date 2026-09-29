@@ -29,7 +29,7 @@
 ## Features / Extras
 | Chord | Action | Note |
 |---|---|---|
-| `SUPER + T` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/ThemeChanger.sh")` | global theme switcher wallust |
+| `SUPER + SHIFT + T` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/ThemeChanger.sh")` | global theme switcher wallust |
 | `SUPER + H` | `hl.dsp.exec_cmd("dms ipc call keybinds toggle hyprland")` | DMS keybind cheatsheet |
 | `SUPER + semicolon` | `hl.dsp.exec_cmd('dms ipc call spotlight toggleQuery ":e "')` | DMS emoji picker (needs emojiLauncher plugin) |
 | `SUPER + SHIFT + C` | `hl.dsp.exec_cmd("dms ipc call color-picker toggle")` | DMS color picker (Mango chord) |
@@ -73,7 +73,7 @@
 | `SUPER + SHIFT + Q` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/KillActiveProcess.sh")` | force kill SIGKILL script |
 | `SUPER + ALT + L` | `hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || exec /run/current-system/sw/bin/hyp…` | hyprlock, singleton-guarded (no stacking) |
 | `CTRL + ALT + P` | `hl.dsp.exec_cmd("dms ipc call powermenu toggle")` | DMS power menu |
-| `SUPER + X` | `hl.dsp.exec_cmd("dms ipc call powermenu toggle")` | DMS power menu quick (Mango chord) |
+| `SUPER + SHIFT + X` | `hl.dsp.exec_cmd("dms ipc call powermenu toggle")` | DMS power menu quick (Mango chord) |
 | `SUPER + SHIFT + N` | `hl.dsp.exec_cmd("dms ipc call notifications toggleDoNotDisturb")` | DMS do-not-disturb toggle (Mango chord) |
 
 ## Master / Dwindle
@@ -84,7 +84,7 @@
 | `SUPER + CTRL + Return` | `hl.dsp.layout("swapwithmaster")` | swap with master |
 | `SUPER + SHIFT + I` | `hl.dsp.layout("togglesplit")` | toggle dwindle split |
 | `SUPER + P` | `hl.dsp.exec_cmd("dms ipc call powerprofile cycle")` | DMS power profile cycle (Mango chord) |
-| `SUPER + M` | `hl.dsp.exec_cmd("dms ipc call processlist focusOrToggle")` | DMS process list (Mango chord) |
+| `SUPER + SHIFT + M` | `hl.dsp.exec_cmd("dms ipc call processlist focusOrToggle")` | DMS process list (Mango chord) |
 
 ## Group
 | Chord | Action | Note |
@@ -118,9 +118,9 @@
 | `SUPER + ALT + S` | `hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || /run/current-system/sw/bin/hyprlock…` | lock-then-suspend via hyprlock (singleton-guarded) |
 | `SUPER + SHIFT + S` | `hl.dsp.exec_cmd("bash -c 'dms screenshot window --stdout --no-file --no-clipboard --no-not…` | focused window to satty (Mango chord) |
 | `SUPER + CTRL + SHIFT + S` | `hl.dsp.exec_cmd("bash -c 'dms screenshot full --stdout --no-file --no-clipboard --no-notif…` | fullscreen to satty (Mango 3rd bind) |
-| `SUPER + SHIFT + X` | `hl.dsp.exec_cmd("bash -c 'region=$(slurp) \|\| exit 0; grim -g \"$region\" - \| tesseract…` | region select to text OCR extract (Mango chord) |
-| `SUPER + SHIFT + T` | `hl.dsp.exec_cmd("bash -c 'wl-paste --no-newline \| /home/fury/.local/bin/dusky-kokoro speak…` | speak clipboard aloud Kokoro TTS (Mango chord) |
-| `SUPER + SHIFT + M` | `hl.dsp.exec_cmd("hyprwhspr-rs record toggle")` | STT record toggle Parakeet (Mango chord) |
+| `SUPER + X` | `hl.dsp.exec_cmd("bash -c 'region=$(slurp) \|\| exit 0; grim -g \"$region\" - \| tesseract…` | region select to text OCR extract (Mango chord) |
+| `SUPER + T` | `hl.dsp.exec_cmd("bash -c 'wl-paste --no-newline \| /home/fury/.local/bin/dusky-kokoro speak…` | speak clipboard aloud Kokoro TTS (Mango chord) |
+| `SUPER + M` | `hl.dsp.exec_cmd("hyprwhspr-rs record toggle")` | STT record toggle Parakeet (Mango chord) |
 | `SHIFT + Print` | `hl.dsp.exec_cmd("dms screenshot")` | quick region save (Mango chord) |
 | `ALT + Print` | `hl.dsp.exec_cmd("dms screenshot window")` | quick window save |
 | `Print` | `hl.dsp.exec_cmd("dms screenshot full")` | quick fullscreen save |

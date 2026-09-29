@@ -29,7 +29,7 @@ hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("brave --incognito")) -- private Br
 hl.bind("SUPER + SHIFT + H", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/mango/zsh-aliases.sh")) -- zsh aliases list (Mango chord+script, read-only use)
 
 -- ═══════════════════════ FEATURES / EXTRAS ═══════════════════════
-hl.bind("SUPER + T", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/ThemeChanger.sh")) -- global theme switcher wallust
+hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/ThemeChanger.sh")) -- global theme switcher wallust
 hl.bind("SUPER + H", hl.dsp.exec_cmd("dms ipc call keybinds toggle hyprland")) -- DMS keybind cheatsheet
 hl.bind("SUPER + semicolon", hl.dsp.exec_cmd('dms ipc call spotlight toggleQuery ":e "')) -- DMS emoji picker (needs emojiLauncher plugin)
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("dms ipc call color-picker toggle")) -- DMS color picker (Mango chord)
@@ -75,7 +75,7 @@ hl.bind("SUPER + Q", hl.dsp.window.close()) -- close window
 hl.bind("SUPER + SHIFT + Q", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/KillActiveProcess.sh")) -- force kill SIGKILL script
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || exec /run/current-system/sw/bin/hyprlock'")) -- hyprlock, singleton-guarded (no stacking)
 hl.bind("CTRL + ALT + P", hl.dsp.exec_cmd("dms ipc call powermenu toggle")) -- DMS power menu
-hl.bind("SUPER + X", hl.dsp.exec_cmd("dms ipc call powermenu toggle")) -- DMS power menu quick (Mango chord)
+hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("dms ipc call powermenu toggle")) -- DMS power menu quick (Mango chord)
 hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("dms ipc call notifications toggleDoNotDisturb")) -- DMS do-not-disturb toggle (Mango chord)
 
 -- ═══════════════════ MASTER / DWINDLE ═══════════════════
@@ -84,7 +84,7 @@ hl.bind("SUPER + I", hl.dsp.layout("addmaster")) -- more masters
 hl.bind("SUPER + CTRL + Return", hl.dsp.layout("swapwithmaster")) -- swap with master
 hl.bind("SUPER + SHIFT + I", hl.dsp.layout("togglesplit")) -- toggle dwindle split
 hl.bind("SUPER + P", hl.dsp.exec_cmd("dms ipc call powerprofile cycle")) -- DMS power profile cycle (Mango chord)
-hl.bind("SUPER + M", hl.dsp.exec_cmd("dms ipc call processlist focusOrToggle")) -- DMS process list (Mango chord)
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("dms ipc call processlist focusOrToggle")) -- DMS process list (Mango chord)
 
 -- ═════════════════ GROUP ═══════════════════
 hl.bind("SUPER + G", hl.dsp.group.toggle()) -- toggle group (kept Hyprland)
@@ -119,9 +119,9 @@ hl.bind("SUPER + S", hl.dsp.exec_cmd("bash -c 'dms screenshot --stdout --no-file
 hl.bind("SUPER + ALT + S", hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || /run/current-system/sw/bin/hyprlock & sleep 2; systemctl suspend'")) -- lock-then-suspend via hyprlock (singleton-guarded)
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("bash -c 'dms screenshot window --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- focused window to satty (Mango chord)
 hl.bind("SUPER + CTRL + SHIFT + S", hl.dsp.exec_cmd("bash -c 'dms screenshot full --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- fullscreen to satty (Mango 3rd bind)
-hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("bash -c 'region=$(slurp) || exit 0; grim -g \"$region\" - | tesseract stdin stdout -l eng 2>/dev/null | wl-copy; notify-send \"OCR\" \"$(wl-paste | head -c 200)\"'")) -- region select to text OCR extract (Mango chord)
-hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("bash -c 'wl-paste --no-newline | /home/fury/.local/bin/dusky-kokoro speak --stdin --mode interrupt'")) -- speak clipboard aloud Kokoro Heart/Bella GPU (Mango chord)
-hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("hyprwhspr-rs record toggle")) -- STT record toggle Parakeet (Mango chord)
+hl.bind("SUPER + X", hl.dsp.exec_cmd("bash -c 'region=$(slurp) || exit 0; grim -g \"$region\" - | tesseract stdin stdout -l eng 2>/dev/null | wl-copy; notify-send \"OCR\" \"$(wl-paste | head -c 200)\"'")) -- region select to text OCR extract (Mango chord)
+hl.bind("SUPER + T", hl.dsp.exec_cmd("bash -c 'wl-paste --no-newline | /home/fury/.local/bin/dusky-kokoro speak --stdin --mode interrupt'")) -- speak clipboard aloud Kokoro Heart/Bella GPU (Mango chord)
+hl.bind("SUPER + M", hl.dsp.exec_cmd("hyprwhspr-rs record toggle")) -- STT record toggle Parakeet (Mango chord)
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd("dms screenshot")) -- quick region save (Mango chord)
 hl.bind("ALT + Print", hl.dsp.exec_cmd("dms screenshot window")) -- quick window save
 hl.bind("Print", hl.dsp.exec_cmd("dms screenshot full")) -- quick fullscreen save

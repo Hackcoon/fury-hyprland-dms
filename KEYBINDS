@@ -8,7 +8,7 @@ SUPER + B                | Browser homepage
 SUPER + D                | Vicinae launcher (black/white)
 SUPER SHIFT + D          | rofi launcher (drun/run/window/files)
 SUPER + H                | This help
-SUPER + T                | Global theme switcher (wallust)
+SUPER SHIFT + T          | Global theme switcher (wallust)
 SUPER SHIFT + E          | Quick settings menu
 SUPER ALT + R            | Refresh bars & menus
 CTRL ALT + Delete        | Exit Hyprland
@@ -71,9 +71,9 @@ SUPER CTRL + Print       | Full screenshot in 5s
 SUPER CTRL SHIFT + Print | Full screenshot in 10s
 ALT + Print              | Active window
 SUPER SHIFT + S          | Area → satty annotate
-SUPER SHIFT + X          | Region → text (OCR extract, clipboard)
-SUPER SHIFT + T          | Speak clipboard (Kokoro TTS)
-SUPER SHIFT + M          | STT record toggle (Parakeet)
+SUPER + X                | Region → text (OCR extract, clipboard)
+SUPER + T                | Speak clipboard (Kokoro TTS)
+SUPER + M                | STT record toggle (Parakeet)
 
 TOOLS
 SUPER + S                | Web search (Brave)

@@ -1,10 +1,11 @@
 # OCR + GPU TTS setup (fury-hyprland-dms) — exact recreation guide
 
-What this gives you: `SUPER+SHIFT+X` region-to-text OCR, `SUPER+SHIFT+T` clipboard
-spoken aloud by Kokoro (`af_heart:0.4,af_bella:0.6`) on NVIDIA GPU. Fully offline
+What this gives you: `SUPER+X` region-to-text OCR, `SUPER+T` clipboard
+spoken aloud by Kokoro (`af_heart:0.4,af_bella:0.6`) on NVIDIA GPU, `SUPER+M`
+dictation via Parakeet. Fully offline
 after first-run downloads. Binds live in `dms/binds.lua` (required from
 `hyprland.lua` via `require("dms.binds")`); Hypr chord style is
-`SUPER + SHIFT + X` (spaces, uppercase).
+`SUPER + X` (spaces, uppercase).
 
 Architecture (hybrid, on purpose): NixOS provides system packages; the Kokoro
 engine is a `uv` venv with pinned PyPI CUDA wheels (nix-building onnxruntime
@@ -161,15 +162,19 @@ Voice default is already the Heart/Bella blend. To change it, edit
 Place in the screenshots cluster (after the fullscreen-to-satty line):
 
 ```lua
-hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("bash -c 'region=$(slurp) || exit 0; grim -g \"$region\" - | tesseract stdin stdout -l eng 2>/dev/null | wl-copy; notify-send \"OCR\" \"$(wl-paste | head -c 200)\"'")) -- region select to text OCR extract (Mango chord)
-hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("bash -c 'wl-paste --no-newline | /home/fury/.local/bin/dusky-kokoro speak --stdin --mode interrupt'")) -- speak clipboard aloud Kokoro Heart/Bella GPU (Mango chord)
+hl.bind("SUPER + X", hl.dsp.exec_cmd("bash -c 'region=$(slurp) || exit 0; grim -g \"$region\" - | tesseract stdin stdout -l eng 2>/dev/null | wl-copy; notify-send \"OCR\" \"$(wl-paste | head -c 200)\"'")) -- region select to text OCR extract (Mango chord)
+hl.bind("SUPER + T", hl.dsp.exec_cmd("bash -c 'wl-paste --no-newline | /home/fury/.local/bin/dusky-kokoro speak --stdin --mode interrupt'")) -- speak clipboard aloud Kokoro Heart/Bella GPU (Mango chord)
 ```
 
 Use the **absolute** trigger path — Hyprland's exec environment does not
 have `~/.local/bin` on PATH (bare `dusky-kokoro` dies silently; the daemon
 logs will show zero jobs). Apply with `hyprctl reload`, confirm with
 `hyprctl binds | grep -B3 'key: X$'` (expect modmask 64 AND 65 entries —
-bare `X` is power-menu quick, untouched).
+bare `X` is OCR, `SHIFT+X` is power-menu quick).
+
+Layer convention: bare `SUPER+X/T/M` are the AI layer (OCR/speak/dictate);
+the previous occupants moved up one layer — power-quick to `SUPER+SHIFT+X`,
+theme switcher to `SUPER+SHIFT+T`, process list to `SUPER+SHIFT+M`.
 
 ---
 
@@ -269,7 +274,7 @@ switch first when captures come back empty.
 ### 4d — Bind in this repo (`dms/binds.lua`)
 
 ```lua
-hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("hyprwhspr-rs record toggle")) -- STT record toggle Parakeet (Mango chord)
+hl.bind("SUPER + M", hl.dsp.exec_cmd("hyprwhspr-rs record toggle")) -- STT record toggle Parakeet (Mango chord)
 ```
 
 Hyprland owns shortcut capture here (upstream-recommended: compositor grabs
