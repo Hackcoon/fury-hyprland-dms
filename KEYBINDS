@@ -72,6 +72,8 @@ SUPER CTRL SHIFT + Print | Full screenshot in 10s
 ALT + Print              | Active window
 SUPER SHIFT + S          | Area → satty annotate
 SUPER SHIFT + X          | Region → text (OCR extract, clipboard)
+SUPER SHIFT + T          | Speak clipboard (Kokoro TTS)
+SUPER SHIFT + M          | STT record toggle (Parakeet)
 
 TOOLS
 SUPER + S                | Web search (Brave)

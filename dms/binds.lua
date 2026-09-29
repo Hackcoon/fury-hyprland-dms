@@ -120,6 +120,8 @@ hl.bind("SUPER + ALT + S", hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null |
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("bash -c 'dms screenshot window --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- focused window to satty (Mango chord)
 hl.bind("SUPER + CTRL + SHIFT + S", hl.dsp.exec_cmd("bash -c 'dms screenshot full --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- fullscreen to satty (Mango 3rd bind)
 hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("bash -c 'region=$(slurp) || exit 0; grim -g \"$region\" - | tesseract stdin stdout -l eng 2>/dev/null | wl-copy; notify-send \"OCR\" \"$(wl-paste | head -c 200)\"'")) -- region select to text OCR extract (Mango chord)
+hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("bash -c 'wl-paste --no-newline | /home/fury/.local/bin/dusky-kokoro speak --stdin --mode interrupt'")) -- speak clipboard aloud Kokoro Heart/Bella GPU (Mango chord)
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("hyprwhspr-rs record toggle")) -- STT record toggle Parakeet (Mango chord)
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd("dms screenshot")) -- quick region save (Mango chord)
 hl.bind("ALT + Print", hl.dsp.exec_cmd("dms screenshot window")) -- quick window save
 hl.bind("Print", hl.dsp.exec_cmd("dms screenshot full")) -- quick fullscreen save

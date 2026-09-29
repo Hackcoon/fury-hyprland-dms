@@ -119,6 +119,8 @@
 | `SUPER + SHIFT + S` | `hl.dsp.exec_cmd("bash -c 'dms screenshot window --stdout --no-file --no-clipboard --no-not…` | focused window to satty (Mango chord) |
 | `SUPER + CTRL + SHIFT + S` | `hl.dsp.exec_cmd("bash -c 'dms screenshot full --stdout --no-file --no-clipboard --no-notif…` | fullscreen to satty (Mango 3rd bind) |
 | `SUPER + SHIFT + X` | `hl.dsp.exec_cmd("bash -c 'region=$(slurp) \|\| exit 0; grim -g \"$region\" - \| tesseract…` | region select to text OCR extract (Mango chord) |
+| `SUPER + SHIFT + T` | `hl.dsp.exec_cmd("bash -c 'wl-paste --no-newline \| /home/fury/.local/bin/dusky-kokoro speak…` | speak clipboard aloud Kokoro TTS (Mango chord) |
+| `SUPER + SHIFT + M` | `hl.dsp.exec_cmd("hyprwhspr-rs record toggle")` | STT record toggle Parakeet (Mango chord) |
 | `SHIFT + Print` | `hl.dsp.exec_cmd("dms screenshot")` | quick region save (Mango chord) |
 | `ALT + Print` | `hl.dsp.exec_cmd("dms screenshot window")` | quick window save |
 | `Print` | `hl.dsp.exec_cmd("dms screenshot full")` | quick fullscreen save |

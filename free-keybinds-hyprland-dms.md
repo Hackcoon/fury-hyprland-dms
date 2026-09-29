@@ -1,4 +1,4 @@
-# Free keybinds — Hyprland (fury) — generated 2026-09-29 from `dms/binds.lua` (154 binds)
+# Free keybinds — Hyprland (fury) — generated 2026-09-29 from `dms/binds.lua` (156 binds)
 
 > Regenerate: `rg -o 'hl\.bind\("([^"]+)"' dms/binds.lua | sort | uniq -c`.
 > Source of truth: `dms/binds.lua` (active, DMS cheatsheet reads it) + `binds.lua` (retired archive).
@@ -12,9 +12,9 @@ FREE: `A, 0, slash (/), apostrophe ('), minus (-), equal (=), bracketleft ([), b
 
 ## SUPER+SHIFT (best layer for new binds)
 
-Taken: `A B C F G H I J N O P Q R S U V X Y Z, Return, Tab, 1-9, period, bracketleft, bracketright, down/left/right/up, mouse:272`
+Taken: `A B C F G H I J M N O P Q R S T U V X Y Z, Return, Tab, 1-9, period, bracketleft, bracketright, down/left/right/up, mouse:272`
 
-FREE: `D, E, K, L, M, T, W, 0, comma (,), semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), backslash (\), grave (`), SPACE`
+FREE: `D, E, K, L, W, 0, comma (,), semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), backslash (\), grave (`), SPACE`
 
 > Vicinae now on `SUPER + ALT + SPACE` (153rd bind, 2026-09-25). DMS stays on `SUPER+SPACE`. Mango parity note: same chord is TAKEN in mango (`toggle_all_floating`) — Hypr-only for now.
 
@@ -49,6 +49,6 @@ FREE: `B D E F G H I J K M N P Q R T U V W X Y Z, Return, Tab, 0-9, semicolon (;
 
 ## Recommendations
 
-1. `SUPER+SHIFT+<letter>` first (`D E K L M T W` free) — mirrors mango FREE-KEYBINDS.md.
+1. `SUPER+SHIFT+<letter>` first (`D E K L W` free) — mirrors mango free-keybinds.
 2. Keep mango/hypr parity: check both sheets before adding (e.g. `SUPER+ALT+SPACE` diverges).
 3. `SUPER+slash` / `SUPER+apostrophe` for launcher-style popups.
