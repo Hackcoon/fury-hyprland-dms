@@ -71,6 +71,7 @@ SUPER CTRL + Print       | Full screenshot in 5s
 SUPER CTRL SHIFT + Print | Full screenshot in 10s
 ALT + Print              | Active window
 SUPER SHIFT + S          | Area → satty annotate
+SUPER SHIFT + X          | Region → text (OCR extract, clipboard)
 
 TOOLS
 SUPER + S                | Web search (Brave)

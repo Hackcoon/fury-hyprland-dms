@@ -118,6 +118,7 @@
 | `SUPER + ALT + S` | `hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || /run/current-system/sw/bin/hyprlock…` | lock-then-suspend via hyprlock (singleton-guarded) |
 | `SUPER + SHIFT + S` | `hl.dsp.exec_cmd("bash -c 'dms screenshot window --stdout --no-file --no-clipboard --no-not…` | focused window to satty (Mango chord) |
 | `SUPER + CTRL + SHIFT + S` | `hl.dsp.exec_cmd("bash -c 'dms screenshot full --stdout --no-file --no-clipboard --no-notif…` | fullscreen to satty (Mango 3rd bind) |
+| `SUPER + SHIFT + X` | `hl.dsp.exec_cmd("bash -c 'region=$(slurp) \|\| exit 0; grim -g \"$region\" - \| tesseract…` | region select to text OCR extract (Mango chord) |
 | `SHIFT + Print` | `hl.dsp.exec_cmd("dms screenshot")` | quick region save (Mango chord) |
 | `ALT + Print` | `hl.dsp.exec_cmd("dms screenshot window")` | quick window save |
 | `Print` | `hl.dsp.exec_cmd("dms screenshot full")` | quick fullscreen save |
