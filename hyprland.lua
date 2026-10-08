@@ -86,7 +86,7 @@ hl.config({
     kb_layout = "us",
     repeat_rate = 50,
     repeat_delay = 300,
-    sensitivity = 0,
+    sensitivity = -0.5,
     numlock_by_default = true,
     follow_mouse = 1,
     float_switch_override_focus = false,
@@ -201,7 +201,9 @@ hl.window_rule({ match = { class = "^(kitty-dropterm)$" }, float = true })
 hl.window_rule({ match = { class = "^(scratch-term)$" }, float = true, size = { "monitor_w*0.65", "monitor_h*0.65" }, move = { "monitor_w*0.175", "monitor_h*0.1" } })
 hl.window_rule({ match = { class = "^(io\\.github\\.Qalculate.*|[Qq]alculate.*)$" }, float = true })
 hl.window_rule({ match = { class = "^(nwg-look|nm-connection-editor|blueman-manager|pavucontrol)$" }, float = true })
-hl.window_rule({ match = { title = "^(Picture in Picture|PiP)$" }, float = true, pin = true, size = { "monitor_w*0.25", "monitor_h*0.25" }, move = { "monitor_w-(monitor_w*0.25)-20", "monitor_h-(monitor_h*0.25)-20" } })
+-- Brave/FF PiP (YouTube or any site): float + pin (Hyprland's always-on-top),
+-- bottom-right 25%, no focus steal on video change (gaming-safe).
+hl.window_rule({ match = { title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture|PiP)(.*)$" }, float = true, pin = true, size = { "monitor_w*0.25", "monitor_h*0.25" }, move = { "monitor_w-(monitor_w*0.25)-20", "monitor_h-(monitor_h*0.25)-20" }, focus_on_activate = false, no_initial_focus = true, suppress_event = "activate" })
 hl.window_rule({ match = { class = "^(xdg-desktop-portal-gtk)$" }, float = true })
 hl.window_rule({ match = { initial_class = "^(pavucontrol)$" }, float = true })
 

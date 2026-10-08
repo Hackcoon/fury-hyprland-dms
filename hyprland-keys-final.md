@@ -45,6 +45,7 @@
 | `SUPER + SHIFT + F` | `hl.dsp.window.fullscreen()` | fullscreen toggle |
 | `SUPER + CTRL + F` | `hl.dsp.window.fullscreen({ mode = "maximized" })` | maximize keep bar/border |
 | `SUPER + CTRL + SPACE` | `hl.dsp.window.float()` | float current window (Mango chord) |
+| `SUPER + ALT + P` | `hl.dsp.window.pin()` | PiP stick toggle: follow workspaces or stay put (Mango toggleglobal parity) |
 | `SUPER + ALT + mouse_down` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/ZoomIn.sh")` | zoom in (kept Hyprland) |
 | `SUPER + ALT + mouse_up` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/ZoomOut.sh")` | zoom out (kept Hyprland) |
 

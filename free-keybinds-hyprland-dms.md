@@ -1,4 +1,4 @@
-# Free keybinds — Hyprland (fury) — generated 2026-09-29 from `dms/binds.lua` (156 binds)
+# Free keybinds — Hyprland (fury) — generated 2026-10-08 from `dms/binds.lua` (157 binds)
 
 > Regenerate: `rg -o 'hl\.bind\("([^"]+)"' dms/binds.lua | sort | uniq -c`.
 > Source of truth: `dms/binds.lua` (active, DMS cheatsheet reads it) + `binds.lua` (retired archive).
@@ -26,9 +26,9 @@ FREE: `A, C, E, G, I, M, N, P, Q, S, T, U, V, W, X, Y, Z, 0, comma (,), period (
 
 ## SUPER+ALT (wide open)
 
-Taken: `A C L O S, SPACE (vicinae), comma, period, down/left/right/up, mouse_down/up (zoom)`
+Taken: `A C L O P S, SPACE (vicinae), comma, period, down/left/right/up, mouse_down/up (zoom)`
 
-FREE: `B D E F G H I J K M N P Q R T U V W X Y Z, Return, Tab, 0-9, semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), brackets, backslash (\), grave (`)`
+FREE: `B D E F G H I J K M N Q R T U V W X Y Z, Return, Tab, 0-9, semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), brackets, backslash (\), grave (`)`
 
 > Note: `SUPER+ALT+B` / `SUPER+CTRL+B` Waybar binds are commented out (Waybar breaks DMS binds). Treat as reserved, not free.
 
