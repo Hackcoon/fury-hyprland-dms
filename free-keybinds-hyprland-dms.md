@@ -1,4 +1,4 @@
-# Free keybinds — Hyprland (fury) — generated 2026-10-08 from `dms/binds.lua` (157 binds)
+# Free keybinds — Hyprland (fury) — generated 2026-10-10 from `dms/binds.lua` (159 binds)
 
 > Regenerate: `rg -o 'hl\.bind\("([^"]+)"' dms/binds.lua | sort | uniq -c`.
 > Source of truth: `dms/binds.lua` (active, DMS cheatsheet reads it) + `binds.lua` (retired archive).
@@ -20,9 +20,9 @@ FREE: `D, E, K, L, W, 0, comma (,), semicolon (;), slash (/), apostrophe ('), mi
 
 ## SUPER+CTRL
 
-Taken: `B D F H J K L O R, SPACE, Return, Tab, 1-9, bracketleft, bracketright, down/left/right/up`
+Taken: `A B D F H J K L O R, SPACE, Return, Tab, 1-9, bracketleft, bracketright, down/left/right/up`
 
-FREE: `A, C, E, G, I, M, N, P, Q, S, T, U, V, W, X, Y, Z, 0, comma (,), period (.), semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), backslash (\), grave (`)`
+FREE: `C, E, G, I, M, N, P, Q, S, T, U, V, W, X, Y, Z, 0, comma (,), period (.), semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), backslash (\), grave (`)`
 
 ## SUPER+ALT (wide open)
 
@@ -34,7 +34,7 @@ FREE: `B D E F G H I J K M N Q R T U V W X Y Z, Return, Tab, 0-9, semicolon (;),
 
 ## Triple layers (nearly untouched)
 
-- `SUPER+CTRL+SHIFT`: only `R, S, Tab` taken — everything else free.
+- `SUPER+CTRL+SHIFT`: `A` (Fury Audio Studio), `R, S, Tab` taken — everything else free.
 - `SUPER+ALT+SHIFT`: only `comma, period` taken — everything else free.
 - `SUPER+CTRL+ALT`: only `B` taken (DMS bar toggle) — rest free.
 

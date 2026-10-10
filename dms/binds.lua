@@ -115,6 +115,10 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/MediaC
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/MediaCtrl.sh --prv"), { locked = true }) -- prev track
 hl.bind("XF86AudioStop", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/MediaCtrl.sh --stop"), { locked = true }) -- stop track
 
+-- ═════════════════ FURY AUDIO STUDIO (NixOS module services.fury-audio-studio) ═════════════════
+hl.bind("SUPER + CTRL + A", hl.dsp.exec_cmd("fury-audio-studio --gui-only")) -- open Fury Audio Studio window (settings only, no forced DSP start)
+hl.bind("SUPER + CTRL + SHIFT + A", hl.dsp.exec_cmd("fury-audio-studio --toggle")) -- toggle Fury voice DSP on/off (notifies, restores hardware on off)
+
 -- ═════════════════ SCREENSHOTS (DMS pipeline) ═════════════════
 hl.bind("SUPER + S", hl.dsp.exec_cmd("bash -c 'dms screenshot --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- region select to satty (Mango chord)
 hl.bind("SUPER + ALT + S", hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || /run/current-system/sw/bin/hyprlock & sleep 2; systemctl suspend'")) -- lock-then-suspend via hyprlock (singleton-guarded)
