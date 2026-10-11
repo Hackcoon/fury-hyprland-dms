@@ -391,7 +391,7 @@ def preview_journal_entry(cursor: str):
         f"{c_suc}[CTRL-I]{c_reset}   {c_fg}󰆧 Filter by Invocation{c_reset}",
         f"{c_suc}[CTRL-P]{c_reset}   {c_fg}󰈸 Filter by Priority{c_reset}",
         f"{c_suc}[CTRL-T]{c_reset}   {c_fg}󰔠 Filter by Time Range{c_reset}",
-        f"{c_acc}[CTRL-K]{c_reset}   {c_fg}󰣇 Toggle Kernel Logs{c_reset}",
+        f"{c_acc}[CTRL-K]{c_reset}   {c_fg} Toggle Kernel Logs{c_reset}",
         f"{c_acc}[ALT-R]{c_reset}    {c_fg}󰑃 Toggle Reverse Order{c_reset}",
         f"{c_err}[CTRL-R]{c_reset}   {c_fg}󰑓 Reset All Filters{c_reset}",
         f"{c_bord}[ESC]{c_reset}      {c_fg}󰅙 Back / Exit{c_reset}"
@@ -563,7 +563,7 @@ def main_menu():
             "4. 󰋜 User Unit Logs",
             "5. 󰆧 Failed System Units",
             "6. 󰆧 Failed User Units",
-            "7. 󰣇 Kernel Logs",
+            "7.  Kernel Logs",
             "8. 󰋊 Disk Usage & Maintenance",
             "9. 󰅙 Quit"
         ]
