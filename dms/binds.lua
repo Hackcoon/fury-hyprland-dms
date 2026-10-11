@@ -129,6 +129,7 @@ hl.bind("SUPER + CTRL + SHIFT + A", hl.dsp.exec_cmd("fury-audio-studio --toggle"
 hl.bind("ALT + 3", hl.dsp.exec_cmd("pavucontrol")) -- audio mixer popup (Dusky ALT+3 parity)
 hl.bind("ALT + 1", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class nmtui -e nmtui")) -- Wi-Fi manager (nmtui replaces Dusky's custom Textual TUI)
 hl.bind("ALT + 2", hl.dsp.exec_cmd("blueman-manager")) -- Bluetooth manager (Dusky ALT+2 parity; needs services.blueman in audio.nix)
+hl.bind("ALT + 5", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class journal -e /home/fury/.config/hypr/UserScripts/journalctl.py")) -- journal explorer (fzf journalctl)
 
 -- ═════════════════ SCREENSHOTS (DMS pipeline) ═════════════════
 hl.bind("SUPER + S", hl.dsp.exec_cmd("bash -c 'dms screenshot --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- region select to satty (Mango chord)
