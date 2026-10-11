@@ -7,3 +7,4 @@ screenshots/
 *.pre-scrolling-binds-*
 *.backup[0-9]*
 wallpaper_effects/
+shaders/.shader_menu_memory
