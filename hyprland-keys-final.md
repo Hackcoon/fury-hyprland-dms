@@ -29,6 +29,8 @@
 ## Features / Extras
 | Chord | Action | Note |
 |---|---|---|
+| `SUPER + ALT + V` (PARKED) | `hl.dsp.exec_cmd("~/.config/hypr/UserScripts/shader_menu.sh")` | shader picker w/ live preview — provisional key, not set in stone |
+| `SUPER + ALT + X` (PARKED) | `hl.dsp.exec_cmd("hyprctl eval 'hl.config(...screen_shader = \"\"...)'")` | shaders off — provisional key, not set in stone |
 | `SUPER + SHIFT + T` | `hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/ThemeChanger.sh")` | global theme switcher wallust |
 | `SUPER + H` | `hl.dsp.exec_cmd("dms ipc call keybinds toggle hyprland")` | DMS keybind cheatsheet |
 | `SUPER + semicolon` | `hl.dsp.exec_cmd('dms ipc call spotlight toggleQuery ":e "')` | DMS emoji picker (needs emojiLauncher plugin) |

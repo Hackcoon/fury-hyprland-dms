@@ -31,6 +31,7 @@ Taken: `A C L O P S, SPACE (vicinae), comma, period, down/left/right/up, mouse_d
 FREE: `B D E F G H I J K M N Q R T U V W X Y Z, Return, Tab, 0-9, semicolon (;), slash (/), apostrophe ('), minus (-), equal (=), brackets, backslash (\), grave (`)`
 
 > Note: `SUPER+ALT+B` / `SUPER+CTRL+B` Waybar binds are commented out (Waybar breaks DMS binds). Treat as reserved, not free.
+> Note: `SUPER+ALT+V` (shader picker) / `SUPER+ALT+X` (shaders off) are parked commented-out in `dms/binds.lua` — proposed keys, not set in stone.
 
 ## Triple layers (nearly untouched)
 
