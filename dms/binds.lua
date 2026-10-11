@@ -84,6 +84,14 @@ hl.bind("SUPER + CTRL + D", hl.dsp.layout("removemaster")) -- fewer masters
 hl.bind("SUPER + I", hl.dsp.layout("addmaster")) -- more masters
 hl.bind("SUPER + CTRL + Return", hl.dsp.layout("swapwithmaster")) -- swap with master
 hl.bind("SUPER + SHIFT + I", hl.dsp.layout("togglesplit")) -- toggle dwindle split
+
+-- ═══════════════════ SCROLLING (WS1 filmstrip) — trial 2026-10-10 ═══════════════════
+-- Mouse drag in scrolling always splits up/down (upstream #14274), so use these
+-- instead of dragging. No-ops on dwindle/master workspaces. REVERT: delete the
+-- 3 lines below + `hyprctl reload` (backup: binds.lua.pre-scrolling-binds-20261010).
+hl.bind("SUPER + CTRL + P", hl.dsp.layout("promote")) -- pop window into its own column
+hl.bind("SUPER + CTRL + comma", hl.dsp.layout("swapcol l")) -- swap column left
+hl.bind("SUPER + CTRL + period", hl.dsp.layout("swapcol r")) -- swap column right
 hl.bind("SUPER + P", hl.dsp.exec_cmd("dms ipc call powerprofile cycle")) -- DMS power profile cycle (Mango chord)
 hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("dms ipc call processlist focusOrToggle")) -- DMS process list (Mango chord)
 
