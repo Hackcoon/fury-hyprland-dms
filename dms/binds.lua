@@ -127,6 +127,7 @@ hl.bind("XF86AudioStop", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/MediaC
 hl.bind("SUPER + CTRL + A", hl.dsp.exec_cmd("fury-audio-studio --gui-only")) -- open Fury Audio Studio window (settings only, no forced DSP start)
 hl.bind("SUPER + CTRL + SHIFT + A", hl.dsp.exec_cmd("fury-audio-studio --toggle")) -- toggle Fury voice DSP on/off (notifies, restores hardware on off)
 hl.bind("ALT + 3", hl.dsp.exec_cmd("pavucontrol")) -- audio mixer popup (Dusky ALT+3 parity)
+hl.bind("ALT + 1", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class nmtui -e nmtui")) -- Wi-Fi manager (nmtui replaces Dusky's custom Textual TUI)
 
 -- ═════════════════ SCREENSHOTS (DMS pipeline) ═════════════════
 hl.bind("SUPER + S", hl.dsp.exec_cmd("bash -c 'dms screenshot --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- region select to satty (Mango chord)
