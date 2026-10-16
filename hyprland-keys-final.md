@@ -1,6 +1,6 @@
 # hyprland-keys-final — Fury Hyprland audit
 
-> Date: 2026-10-11 (v7 — ALT utility row 1-4, 168 binds).
+> Date: 2026-10-11 (v7 — ALT utility row 1-4, 169 binds).
 > Source of truth: `~/.config/hypr/dms/binds.lua` (DMS cheatsheet slot, `require`d by `hyprland.lua`) + `binds.lua` (retired archive) + `hyprland.lua` (env/autostart/rules).
 > Mango config untouched throughout. Apply = save file (Hyprland hot-reloads; full `hyprctl reload` if stacked).
 
