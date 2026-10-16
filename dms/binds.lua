@@ -133,45 +133,6 @@ hl.bind("ALT + 2", hl.dsp.exec_cmd("blueman-manager")) -- Bluetooth manager (Dus
 hl.bind("ALT + 4", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class journal -e /home/fury/.config/hypr/UserScripts/journalctl.py")) -- journal explorer (fzf journalctl)
 hl.bind("ALT + 5", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class toolbox -e /home/fury/.config/hypr/UserScripts/toolbox.sh")) -- micro tools picker (fzf toolbox)
 
--- ═════════════════ GAME MODE / passthrough ═════════════════
--- ALT+grave kills ALL global binds (AoE gets ALT+1-6 untouched); same key restores.
--- grave chosen because AoE uses none of it; ALT+6 stays a game key.
--- Submap must NOT be named "passthrough" (reserved dispatcher).
-local SUBMAP_MANUAL_PT = "keybinds_disabled"
-hl.bind(
-    "ALT + grave",
-    function()
-        hl.notification.create({ text = "Game Mode ON - binds off, ALT+` to exit", timeout = 3000 })
-        hl.dispatch(hl.dsp.submap(SUBMAP_MANUAL_PT))
-    end,
-    { description = "Game Mode: disable all keybinds (AoE parity)", locked = true }
-)
-hl.define_submap(SUBMAP_MANUAL_PT, function()
-    hl.bind(
-        "ALT + grave",
-        function()
-            hl.notification.create({ text = "Game Mode OFF - binds restored", timeout = 2000 })
-            hl.dispatch(hl.dsp.submap("reset"))
-        end,
-        { description = "Game Mode: restore keybinds", locked = true }
-    )
-    -- Exceptions that stay live in game mode:
-    hl.bind("SUPER + Tab", function() hop_used(1) end,
-        { description = "Game Mode: next used workspace", locked = true })
-    hl.bind("SUPER + SHIFT + Tab", function() hop_used(-1) end,
-        { description = "Game Mode: prev used workspace", locked = true })
-    -- Throw the game window to a tag and follow it:
-    hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = "1", follow = true }), { description = "Game Mode: send to tag 1", locked = true })
-    hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = "2", follow = true }), { description = "Game Mode: send to tag 2", locked = true })
-    hl.bind("SUPER + SHIFT + 3", hl.dsp.window.move({ workspace = "3", follow = true }), { description = "Game Mode: send to tag 3", locked = true })
-    hl.bind("SUPER + SHIFT + 4", hl.dsp.window.move({ workspace = "4", follow = true }), { description = "Game Mode: send to tag 4", locked = true })
-    hl.bind("SUPER + SHIFT + 5", hl.dsp.window.move({ workspace = "5", follow = true }), { description = "Game Mode: send to tag 5", locked = true })
-    hl.bind("SUPER + SHIFT + 6", hl.dsp.window.move({ workspace = "6", follow = true }), { description = "Game Mode: send to tag 6", locked = true })
-    hl.bind("SUPER + SHIFT + 7", hl.dsp.window.move({ workspace = "7", follow = true }), { description = "Game Mode: send to tag 7", locked = true })
-    hl.bind("SUPER + SHIFT + 8", hl.dsp.window.move({ workspace = "8", follow = true }), { description = "Game Mode: send to tag 8", locked = true })
-    hl.bind("SUPER + SHIFT + 9", hl.dsp.window.move({ workspace = "9", follow = true }), { description = "Game Mode: send to tag 9", locked = true })
-end)
-
 -- ═════════════════ SCREENSHOTS (DMS pipeline) ═════════════════
 hl.bind("SUPER + S", hl.dsp.exec_cmd("bash -c 'dms screenshot --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- region select to satty (Mango chord)
 hl.bind("SUPER + ALT + S", hl.dsp.exec_cmd("bash -c 'pidof hyprlock >/dev/null || /run/current-system/sw/bin/hyprlock & sleep 2; systemctl suspend'")) -- lock-then-suspend via hyprlock (singleton-guarded)
@@ -286,3 +247,45 @@ hl.bind("SUPER + ALT + SHIFT + comma", hl.dsp.workspace.move({ monitor = "left" 
 hl.bind("SUPER + ALT + SHIFT + period", hl.dsp.workspace.move({ monitor = "right" })) -- send workspace to next monitor (Mango tagmon)
 -- Monitors: single-monitor setup, Mango binds inert here too — skipped.
 -- Shell switching + Tide stay retired (vault choice).
+
+-- ═════════════════ GAME MODE / passthrough ═════════════════
+-- NOTE: this block MUST stay after `local function hop_used` (workspace
+-- section above). Lua resolves hop_used at definition scope — placed earlier,
+-- the submap callbacks capture a nil global and error on press.
+-- ALT+grave kills ALL global binds (AoE gets ALT+1-6 untouched); same key restores.
+-- grave chosen because AoE uses none of it; ALT+6 stays a game key.
+-- Submap must NOT be named "passthrough" (reserved dispatcher).
+local SUBMAP_MANUAL_PT = "keybinds_disabled"
+hl.bind(
+    "ALT + grave",
+    function()
+        hl.notification.create({ text = "Game Mode ON - binds off, ALT+` to exit", timeout = 3000 })
+        hl.dispatch(hl.dsp.submap(SUBMAP_MANUAL_PT))
+    end,
+    { description = "Game Mode: disable all keybinds (AoE parity)", locked = true }
+)
+hl.define_submap(SUBMAP_MANUAL_PT, function()
+    hl.bind(
+        "ALT + grave",
+        function()
+            hl.notification.create({ text = "Game Mode OFF - binds restored", timeout = 2000 })
+            hl.dispatch(hl.dsp.submap("reset"))
+        end,
+        { description = "Game Mode: restore keybinds", locked = true }
+    )
+    -- Exceptions that stay live in game mode:
+    hl.bind("SUPER + Tab", function() hop_used(1) end,
+        { description = "Game Mode: next used workspace", locked = true })
+    hl.bind("SUPER + SHIFT + Tab", function() hop_used(-1) end,
+        { description = "Game Mode: prev used workspace", locked = true })
+    -- Throw the game window to a tag and follow it:
+    hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = "1", follow = true }), { description = "Game Mode: send to tag 1", locked = true })
+    hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = "2", follow = true }), { description = "Game Mode: send to tag 2", locked = true })
+    hl.bind("SUPER + SHIFT + 3", hl.dsp.window.move({ workspace = "3", follow = true }), { description = "Game Mode: send to tag 3", locked = true })
+    hl.bind("SUPER + SHIFT + 4", hl.dsp.window.move({ workspace = "4", follow = true }), { description = "Game Mode: send to tag 4", locked = true })
+    hl.bind("SUPER + SHIFT + 5", hl.dsp.window.move({ workspace = "5", follow = true }), { description = "Game Mode: send to tag 5", locked = true })
+    hl.bind("SUPER + SHIFT + 6", hl.dsp.window.move({ workspace = "6", follow = true }), { description = "Game Mode: send to tag 6", locked = true })
+    hl.bind("SUPER + SHIFT + 7", hl.dsp.window.move({ workspace = "7", follow = true }), { description = "Game Mode: send to tag 7", locked = true })
+    hl.bind("SUPER + SHIFT + 8", hl.dsp.window.move({ workspace = "8", follow = true }), { description = "Game Mode: send to tag 8", locked = true })
+    hl.bind("SUPER + SHIFT + 9", hl.dsp.window.move({ workspace = "9", follow = true }), { description = "Game Mode: send to tag 9", locked = true })
+end)
