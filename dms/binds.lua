@@ -158,6 +158,18 @@ hl.define_submap(SUBMAP_MANUAL_PT, function()
     -- Exceptions that stay live in game mode:
     hl.bind("SUPER + Tab", function() hop_used(1) end,
         { description = "Game Mode: next used workspace", locked = true })
+    hl.bind("SUPER + SHIFT + Tab", function() hop_used(-1) end,
+        { description = "Game Mode: prev used workspace", locked = true })
+    -- Throw the game window to a tag and follow it:
+    hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = "1", follow = true }), { description = "Game Mode: send to tag 1", locked = true })
+    hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = "2", follow = true }), { description = "Game Mode: send to tag 2", locked = true })
+    hl.bind("SUPER + SHIFT + 3", hl.dsp.window.move({ workspace = "3", follow = true }), { description = "Game Mode: send to tag 3", locked = true })
+    hl.bind("SUPER + SHIFT + 4", hl.dsp.window.move({ workspace = "4", follow = true }), { description = "Game Mode: send to tag 4", locked = true })
+    hl.bind("SUPER + SHIFT + 5", hl.dsp.window.move({ workspace = "5", follow = true }), { description = "Game Mode: send to tag 5", locked = true })
+    hl.bind("SUPER + SHIFT + 6", hl.dsp.window.move({ workspace = "6", follow = true }), { description = "Game Mode: send to tag 6", locked = true })
+    hl.bind("SUPER + SHIFT + 7", hl.dsp.window.move({ workspace = "7", follow = true }), { description = "Game Mode: send to tag 7", locked = true })
+    hl.bind("SUPER + SHIFT + 8", hl.dsp.window.move({ workspace = "8", follow = true }), { description = "Game Mode: send to tag 8", locked = true })
+    hl.bind("SUPER + SHIFT + 9", hl.dsp.window.move({ workspace = "9", follow = true }), { description = "Game Mode: send to tag 9", locked = true })
 end)
 
 -- ═════════════════ SCREENSHOTS (DMS pipeline) ═════════════════
