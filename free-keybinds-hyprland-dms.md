@@ -43,7 +43,7 @@ FREE: `B D E F G H I J K M N Q R T U V W X Y Z, Return, Tab, 0-9, semicolon (;),
 
 - `F1-F12`: none bound — all free.
 - `Print`: `Print / SHIFT+Print / ALT+Print` taken (DMS screenshot). `SUPER+Print`, `SUPER+CTRL+Print` etc retired — free.
-- `ALT+Tab` taken (window cycle). `ALT+1/2/3/4/5` taken (nmtui / blueman-manager / pavucontrol / journal explorer / toolbox). `ALT+6` taken (game-mode submap toggle). Bare `ALT+letter` otherwise free but risky (apps use ALT). `ALT+SPACE` free (vicinae alt option).
+- `ALT+Tab` taken (window cycle). `ALT+1/2/3/4/5` taken (nmtui / blueman-manager / pavucontrol / journal explorer / toolbox). `ALT+grave` taken (game-mode submap toggle; `ALT+6` left free for AoE). Bare `ALT+letter` otherwise free but risky (apps use ALT). `ALT+SPACE` free (vicinae alt option).
 - `CTRL+ALT+Delete` (exit), `CTRL+ALT+P` (powermenu) taken.
 - `XF86` media/volume/brightness keys taken (Volume.sh / MediaCtrl.sh). `XF86MonBrightness*` free in Hypr (mango-only).
 - `SUPER+wheel` (hop used workspaces), `SUPER+LMB/RMB` (drag/resize), `SUPER+SHIFT+LMB` (float) taken.

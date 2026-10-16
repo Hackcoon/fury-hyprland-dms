@@ -133,21 +133,22 @@ hl.bind("ALT + 2", hl.dsp.exec_cmd("blueman-manager")) -- Bluetooth manager (Dus
 hl.bind("ALT + 4", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class journal -e /home/fury/.config/hypr/UserScripts/journalctl.py")) -- journal explorer (fzf journalctl)
 hl.bind("ALT + 5", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class toolbox -e /home/fury/.config/hypr/UserScripts/toolbox.sh")) -- micro tools picker (fzf toolbox)
 
--- ═════════════════ GAME MODE / passthrough (Dusky ALT+6 parity) ═════════════════
--- ALT+6 kills ALL global binds (AoE gets ALT+1-6); same key restores.
+-- ═════════════════ GAME MODE / passthrough ═════════════════
+-- ALT+grave kills ALL global binds (AoE gets ALT+1-6 untouched); same key restores.
+-- grave chosen because AoE uses none of it; ALT+6 stays a game key.
 -- Submap must NOT be named "passthrough" (reserved dispatcher).
 local SUBMAP_MANUAL_PT = "keybinds_disabled"
 hl.bind(
-    "ALT + 6",
+    "ALT + grave",
     function()
-        hl.notification.create({ text = "Game Mode ON - binds off, ALT+6 to exit", timeout = 3000 })
+        hl.notification.create({ text = "Game Mode ON - binds off, ALT+` to exit", timeout = 3000 })
         hl.dispatch(hl.dsp.submap(SUBMAP_MANUAL_PT))
     end,
     { description = "Game Mode: disable all keybinds (AoE parity)", locked = true }
 )
 hl.define_submap(SUBMAP_MANUAL_PT, function()
     hl.bind(
-        "ALT + 6",
+        "ALT + grave",
         function()
             hl.notification.create({ text = "Game Mode OFF - binds restored", timeout = 2000 })
             hl.dispatch(hl.dsp.submap("reset"))
