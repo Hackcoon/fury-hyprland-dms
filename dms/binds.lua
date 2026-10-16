@@ -278,6 +278,16 @@ hl.define_submap(SUBMAP_MANUAL_PT, function()
         { description = "Game Mode: next used workspace", locked = true })
     hl.bind("SUPER + SHIFT + Tab", function() hop_used(-1) end,
         { description = "Game Mode: prev used workspace", locked = true })
+    -- View tags directly (mirrors global SUPER+1-9):
+    hl.bind("SUPER + 1", hl.dsp.focus({ workspace = "1" }), { description = "Game Mode: view tag 1", locked = true })
+    hl.bind("SUPER + 2", hl.dsp.focus({ workspace = "2" }), { description = "Game Mode: view tag 2", locked = true })
+    hl.bind("SUPER + 3", hl.dsp.focus({ workspace = "3" }), { description = "Game Mode: view tag 3", locked = true })
+    hl.bind("SUPER + 4", hl.dsp.focus({ workspace = "4" }), { description = "Game Mode: view tag 4", locked = true })
+    hl.bind("SUPER + 5", hl.dsp.focus({ workspace = "5" }), { description = "Game Mode: view tag 5", locked = true })
+    hl.bind("SUPER + 6", hl.dsp.focus({ workspace = "6" }), { description = "Game Mode: view tag 6", locked = true })
+    hl.bind("SUPER + 7", hl.dsp.focus({ workspace = "7" }), { description = "Game Mode: view tag 7", locked = true })
+    hl.bind("SUPER + 8", hl.dsp.focus({ workspace = "8" }), { description = "Game Mode: view tag 8", locked = true })
+    hl.bind("SUPER + 9", hl.dsp.focus({ workspace = "9" }), { description = "Game Mode: view tag 9", locked = true })
     -- Throw the game window to a tag and follow it:
     hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = "1", follow = true }), { description = "Game Mode: send to tag 1", locked = true })
     hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = "2", follow = true }), { description = "Game Mode: send to tag 2", locked = true })

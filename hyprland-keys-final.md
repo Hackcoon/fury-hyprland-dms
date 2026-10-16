@@ -76,7 +76,7 @@
 | `ALT + 3` | `hl.dsp.exec_cmd("pavucontrol")` | audio mixer popup |
 | `ALT + 4` | `hl.dsp.exec_cmd("kitty ... --class journal -e .../UserScripts/journalctl.py")` | journal explorer (fzf journalctl) |
 | `ALT + 5` | `hl.dsp.exec_cmd("kitty ... --class toolbox -e .../UserScripts/toolbox.sh")` | micro tools picker (fzf toolbox) |
-| `ALT + grave` | submap `keybinds_disabled` on/off (same key) | GAME MODE: all global binds off so keys reach the game (AoE; ALT+6 stays a game key); excepted: SUPER+Tab / SHIFT+Tab hop, SUPER+SHIFT+1-9 send-follow; notifications confirm state |
+| `ALT + grave` | submap `keybinds_disabled` on/off (same key) | GAME MODE: all global binds off so keys reach the game (AoE; ALT+6 stays a game key); excepted: SUPER+Tab / SHIFT+Tab hop, SUPER+1-9 view, SUPER+SHIFT+1-9 send-follow; notifications confirm state |
 
 ## System
 | Chord | Action | Note |
