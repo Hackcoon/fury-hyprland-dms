@@ -155,6 +155,9 @@ hl.define_submap(SUBMAP_MANUAL_PT, function()
         end,
         { description = "Game Mode: restore keybinds", locked = true }
     )
+    -- Exceptions that stay live in game mode:
+    hl.bind("SUPER + Tab", function() hop_used(1) end,
+        { description = "Game Mode: next used workspace", locked = true })
 end)
 
 -- ═════════════════ SCREENSHOTS (DMS pipeline) ═════════════════

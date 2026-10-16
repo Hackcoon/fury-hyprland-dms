@@ -1,4 +1,4 @@
-# Free keybinds — Hyprland (fury) — generated 2026-10-11 from `dms/binds.lua` (167 binds)
+# Free keybinds — Hyprland (fury) — generated 2026-10-11 from `dms/binds.lua` (168 binds)
 
 > Regenerate: `rg -o 'hl\.bind\("([^"]+)"' dms/binds.lua | sort | uniq -c`.
 > Source of truth: `dms/binds.lua` (active, DMS cheatsheet reads it) + `binds.lua` (retired archive).
