@@ -67,6 +67,7 @@ hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/An
 hl.bind("SUPER + ALT + A", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/AnimationsPreset.sh")) -- animation STYLE presets (ported Hyprland-Dots)
 hl.bind("SUPER + SHIFT + O", hl.dsp.exec_cmd("bash -c 'systemctl --user restart xdg-desktop-portal xdg-desktop-portal-wlr && notify-send \"Portals\" \"ScreenCast restarted — retry sharing\"'")) -- restart portals screenshare fix (Mango chord)
 hl.bind("SUPER + ALT + C", hl.dsp.exec_cmd("qalculate-qt")) -- calculator Qalculate (floating rule in hyprland.lua)
+hl.bind("SUPER + SHIFT + K", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/ToggleKeyboard.sh")) -- on-screen keyboard wvkbd toggle (mouse-clickable, no physical kb needed)
 hl.bind("SUPER + comma", hl.dsp.exec_cmd("dms ipc call settings focusOrToggle")) -- DMS settings (Mango chord)
 hl.bind("SHIFT_L + ALT_L", hl.dsp.exec_cmd("/home/fury/.config/hypr/scripts/Tak0-Per-Window-Switch.sh"), { ignore_mods = true }) -- per-window layout switch
 
@@ -131,6 +132,29 @@ hl.bind("ALT + 1", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hypr
 hl.bind("ALT + 2", hl.dsp.exec_cmd("blueman-manager")) -- Bluetooth manager (Dusky ALT+2 parity; needs services.blueman in audio.nix)
 hl.bind("ALT + 4", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class journal -e /home/fury/.config/hypr/UserScripts/journalctl.py")) -- journal explorer (fzf journalctl)
 hl.bind("ALT + 5", hl.dsp.exec_cmd("kitty --config /home/fury/.config/kitty/hyprland-wallust.conf --class toolbox -e /home/fury/.config/hypr/UserScripts/toolbox.sh")) -- micro tools picker (fzf toolbox)
+
+-- ═════════════════ GAME MODE / passthrough (Dusky ALT+6 parity) ═════════════════
+-- ALT+6 kills ALL global binds (AoE gets ALT+1-6); same key restores.
+-- Submap must NOT be named "passthrough" (reserved dispatcher).
+local SUBMAP_MANUAL_PT = "keybinds_disabled"
+hl.bind(
+    "ALT + 6",
+    function()
+        hl.notification.create({ text = "Game Mode ON - binds off, ALT+6 to exit", timeout = 3000 })
+        hl.dispatch(hl.dsp.submap(SUBMAP_MANUAL_PT))
+    end,
+    { description = "Game Mode: disable all keybinds (AoE parity)", locked = true }
+)
+hl.define_submap(SUBMAP_MANUAL_PT, function()
+    hl.bind(
+        "ALT + 6",
+        function()
+            hl.notification.create({ text = "Game Mode OFF - binds restored", timeout = 2000 })
+            hl.dispatch(hl.dsp.submap("reset"))
+        end,
+        { description = "Game Mode: restore keybinds", locked = true }
+    )
+end)
 
 -- ═════════════════ SCREENSHOTS (DMS pipeline) ═════════════════
 hl.bind("SUPER + S", hl.dsp.exec_cmd("bash -c 'dms screenshot --stdout --no-file --no-clipboard --no-notify | satty --filename -'")) -- region select to satty (Mango chord)
