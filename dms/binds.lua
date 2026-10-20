@@ -288,6 +288,12 @@ hl.define_submap(SUBMAP_MANUAL_PT, function()
     hl.bind("SUPER + 7", hl.dsp.focus({ workspace = "7" }), { description = "Game Mode: view tag 7", locked = true })
     hl.bind("SUPER + 8", hl.dsp.focus({ workspace = "8" }), { description = "Game Mode: view tag 8", locked = true })
     hl.bind("SUPER + 9", hl.dsp.focus({ workspace = "9" }), { description = "Game Mode: view tag 9", locked = true })
+    -- Special / scratch workspaces (mirrors global SUPER+U / SUPER+J family):
+    hl.bind("SUPER + U", hl.dsp.workspace.toggle_special(), { description = "Game Mode: special overlay", locked = true })
+    hl.bind("SUPER + SHIFT + U", hl.dsp.window.move({ workspace = "special" }), { description = "Game Mode: send window to special", locked = true })
+    hl.bind("SUPER + J", hl.dsp.workspace.toggle_special("scratchpad"), { description = "Game Mode: scratchpad overlay", locked = true })
+    hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ workspace = "special:scratchpad" }), { description = "Game Mode: send to scratchpad", locked = true })
+    hl.bind("SUPER + CTRL + J", hl.dsp.workspace.toggle_special("scratchpad"), { description = "Game Mode: re-open scratchpad", locked = true })
     -- Throw the game window to a tag and follow it:
     hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = "1", follow = true }), { description = "Game Mode: send to tag 1", locked = true })
     hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = "2", follow = true }), { description = "Game Mode: send to tag 2", locked = true })
